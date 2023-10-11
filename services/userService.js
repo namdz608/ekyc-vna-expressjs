@@ -9,7 +9,7 @@ class UserServices {
                     paginate = (pagination.page - 1) * 3
                 }
                 if (filter !== null) {
-                    let data = await knex('ekyc_vna.tbl_customer_info').select()
+                    let data = await knex('ekyc_vna.tbl_user').select()
                         .where((qb) => {
                             Object.keys(filter).forEach(key => {
                                 const value = filter[key];
@@ -32,7 +32,7 @@ class UserServices {
                     resolve(data)
                 }
                 else {
-                    let data = await knex('ekyc_vna.tbl_customer_info').select().limit(3).offset(paginate).orderBy(Object.keys(sort)[0], Object.values(sort)[0]);
+                    let data = await knex('ekyc_vna.tbl_user').select().limit(3).offset(paginate).orderBy(Object.keys(sort)[0], Object.values(sort)[0]);
                     resolve(data)
                 }
             } catch (e) {
@@ -44,7 +44,7 @@ class UserServices {
     getDetailUserInfo = async (id) => {
         return new Promise(async (resolve, reject) => {
             try {
-                let data = await knex('ekyc_vna.tbl_customer_info').select()
+                let data = await knex('ekyc_vna.tbl_user').select()
                     .where('id', '=', id).andWhere('is_delete', '=', false)
                 delete data[0].password
                 resolve(data)

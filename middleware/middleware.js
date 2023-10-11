@@ -23,11 +23,8 @@ const authorizeAction = (requiredAction) => {
 	return (req, res, next) => {
 		// Assuming the user role is retrieved from the authentication process
 		const actions = req.actions;
-		let arrayActions=actions.map(element => {
-			return element.action
-		});
 		// Check if the user has the required role
-		if (arrayActions.includes(requiredAction)) {
+		if (actions.includes(requiredAction)) {
 		  next(); // User has the required role, proceed to the next middleware or action
 		} else {
 		  res.status(403).send('Forbidden'); // User does not have the required role, send a forbidden response

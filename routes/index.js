@@ -40,5 +40,6 @@ router.post('/api/user', verifyToken.verifyToken, verifyToken.authorizeAction(pr
 router.put('/api/user/delete/:id', verifyToken.verifyToken, verifyToken.authorizeAction(process.env.DELETE_USER), UserController.deleteUser)
 router.get('/api/user/detail/:id', verifyToken.verifyToken, verifyToken.authorizeAction(process.env.USER_DETAIL_GET), UserController.getDetailUserInfo)
 router.post('/api/staff', StaffController.addNewStaff)
+router.get('/api/test-list',UserController.getListUser)
 
 module.exports = router

@@ -42,7 +42,6 @@ class StaffService {
                     name: data.name,
                     email: data.email,
                     phone: data.phone,
-                    birth_date: data.birth_date,
                     password: hashUserPass,
                     created_date: new Date().toISOString().toLocaleString("en-US", {
                         timeZone: "Asia/Ho_Chi_Minh",
@@ -51,10 +50,7 @@ class StaffService {
 
                 await knex('ekyc_vna.tbl_user_role').insert({
                     user_id: id.id,
-                    role_id: 3,
-                    created_date: new Date().toISOString().toLocaleString("en-US", {
-                        timeZone: "Asia/Ho_Chi_Minh",
-                    }),
+                    role_id: 1,
                 })
                 resolve(id)
             } catch (e) {

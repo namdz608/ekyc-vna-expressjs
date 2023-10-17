@@ -1,5 +1,5 @@
 CREATE TABLE ekyc_vna.tbl_action (
-	id int4 NOT NULL DEFAULT nextval('ekyc_vna.tbl_action_role_id_seq'::regclass),
+	id serial,
 	"action" varchar(50) NULL
 );
 

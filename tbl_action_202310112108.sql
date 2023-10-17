@@ -1,5 +1,5 @@
 CREATE TABLE ekyc_vna.tbl_action (
-	id serial,
+	id serial4 not null,
 	"action" varchar(50) NULL
 );
 
